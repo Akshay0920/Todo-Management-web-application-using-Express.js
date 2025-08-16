@@ -9,7 +9,7 @@
     "db:create:test": "cross-env NODE_ENV=test npx sequelize-cli db:create",
     "pretest": "cross-env NODE_ENV=test npx sequelize-cli db:drop && cross-env NODE_ENV=test npx sequelize-cli db:create",
     "test": "cross-env NODE_ENV=test jest --detectOpenHandles",
-    "prepare": "npx husky install"
+    "prepare": "husky install"
   },
   "author": "",
   "license": "ISC",

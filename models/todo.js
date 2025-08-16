@@ -1,9 +1,11 @@
 "use strict";
 const { Model } = require("sequelize");
+// eslint-disable-next-line no-unused-vars
 const { Op } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
   class Todo extends Model {
+    // eslint-disable-next-line no-unused-vars
     static associate(models) {
       // define association here
     }
