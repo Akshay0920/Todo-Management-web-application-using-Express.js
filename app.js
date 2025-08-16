@@ -1,10 +1,24 @@
 const express = require("express");
-const { request, response } = require("express");
+//const { request, response } = require("express");
 const app = express();
 const { Todo } = require("./models");
-const bodyParser = require("body-parser");
+const path = require("path");
 
 app.use(express.json());
+
+app.set("view engine", "ejs");
+app.get("/", async (request, response) => {
+  const allTodos = await Todo.getTodos();
+  if(request.accepts("html")) {
+    return response.render("index", { allTodos });
+  }else {
+    response.json({allTodos});
+  }
+  
+});
+
+// eslint-disable-next-line no-undef
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/todos", async (request, response) => {
   try {
