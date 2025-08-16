@@ -12,6 +12,10 @@
     "migrate": "node node_modules/.bin/sequelize-cli db:migrate",
     "prepare": "is-ci || husky install"
   },
+  "engines": {
+  "node": "20.x"
+},
+  
   "author": "",
   "license": "ISC",
   "dependencies": {
