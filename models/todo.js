@@ -1,6 +1,6 @@
-'use strict';
-const { Model } = require('sequelize');
-const { Op } = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
+const { Op } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
   class Todo extends Model {
@@ -12,26 +12,25 @@ module.exports = (sequelize, DataTypes) => {
       return this.create({
         title: title,
         dueDate: dueDate,
-        completed: false
+        completed: false,
       });
     }
 
-    // This is the corrected method. It's static and uses the update method.
-    static async markAsComplete(id) { 
-      await Todo.update(
-        { completed: true },
-        { where: { id: id } }
-      );
+    static async markAsComplete(id) {
+      await Todo.update({ completed: true }, { where: { id: id } });
     }
   }
 
-  Todo.init({
-    title: DataTypes.STRING,
-    dueDate: DataTypes.DATEONLY,
-    completed: DataTypes.BOOLEAN
-  }, {
-    sequelize,
-    modelName: 'Todo',
-  });
+  Todo.init(
+    {
+      title: DataTypes.STRING,
+      dueDate: DataTypes.DATEONLY,
+      completed: DataTypes.BOOLEAN,
+    },
+    {
+      sequelize,
+      modelName: "Todo",
+    },
+  );
   return Todo;
 };
