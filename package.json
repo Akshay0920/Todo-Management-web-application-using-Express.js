@@ -4,15 +4,14 @@
   "scripts": {
     "start": "nodemon -e js,ejs",
     "start:prod": "node index.js",
-    "db:create:test": "cross-env NODE_ENV=test npx sequelize-cli db:create",
-    "pretest": "cross-env NODE_ENV=test npx sequelize-cli db:drop && cross-env NODE_ENV=test npx sequelize-cli db:create",
+    "db:create:test": "cross-env NODE_ENV=test sequelize-cli db:create",
+    "pretest": "cross-env NODE_ENV=test sequelize-cli db:drop && cross-env NODE_ENV=test sequelize-cli db:create",
     "test": "cross-env NODE_ENV=test jest --detectOpenHandles",
 
-    "migrate": "npx sequelize-cli db:migrate",  
-    "seed": "npx sequelize-cli db:seed:all",
+    "migrate": "sequelize-cli db:migrate",
+    "seed": "sequelize-cli db:seed:all",
 
-    "prepare": "is-ci || husky install",
-    "postinstall": "chmod +x ./node_modules/.bin/sequelize-cli"
+    "prepare": "is-ci || husky install"
   },
   "engines": {
     "node": "20.x"
