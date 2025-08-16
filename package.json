@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start" : "nodemon -e js,ejs",
+    "start": "nodemon -e js,ejs",
     "start:prod": "node index.js",
     "db:create:test": "cross-env NODE_ENV=test npx sequelize-cli db:create",
     "pretest": "cross-env NODE_ENV=test npx sequelize-cli db:drop && cross-env NODE_ENV=test npx sequelize-cli db:create",
     "test": "cross-env NODE_ENV=test jest --detectOpenHandles",
+    "migrate": "npx sequelize-cli db:migrate",
     "prepare": "is-ci || husky install"
   },
   "author": "",
@@ -17,8 +18,7 @@
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "pg": "^8.16.3",
-    "sequelize": "^6.37.7",
-    "sequelize-cli": "^6.6.3"
+    "sequelize": "^6.37.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
@@ -31,6 +31,7 @@
     "lint-staged": "^16.1.5",
     "nodemon": "^3.1.10",
     "prettier": "^3.6.2",
+    "sequelize-cli": "^6.6.3",
     "supertest": "^7.1.4"
   }
 }
